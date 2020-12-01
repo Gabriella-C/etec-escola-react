@@ -55,7 +55,37 @@ export const Profile = styled.div`
       display: block;
       margin-top: 2px;
       font-size: 12px;
-      color: #999;
+      color: #fff;
+    }
+
+    button {
+      border: 0;
+      background: none;
+      margin-top: 5px;
+      margin-left: 10px;
+    }
+    ul {
+      display: ${(props) => (props.visible ? "block" : "none")};
+      position: absolute;
+      margin-top: 10px;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+
+      border-radius: 4px;
+      left: calc(80% - 10px);
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: calc(50% - 10px);
+        top: -10px;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid rgba(0, 0, 0, 0.6);
+      }
     }
   }
   img {

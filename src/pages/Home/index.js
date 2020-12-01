@@ -1,32 +1,57 @@
 import React from "react";
-import { HiPencil, HiPlus, HiOutlineTrash } from "react-icons/hi";
-import { FiInfo } from "react-icons/fi";
+import { HiPencil, HiOutlineTrash } from "react-icons/hi";
+
 import { Container } from "./styles";
+import history from "../../services/history";
 import { Link } from "react-router-dom";
 
-function Dashboard() {
+function Home() {
   return (
     <Container>
+      <form>
+        <input type="text" id="materia" name="materia" placeholder="Matéria" />
+        <button>Adicionar Aula</button>
+      </form>
       <ul>
-        <Link to="/AdicionarAula">
-          <HiPlus size={25} color="#7159c1" />
-          <strong>Adicionar Aula</strong>
-        </Link>
-        <Link to="/ListarAula">
-          <HiPencil size={25} color="#7159c1" />
-          <strong>Editar Aula</strong>
-        </Link>
-        <Link to="/ListarAula">
-          <FiInfo size={25} color="#7159c1" />
-          <strong>Ver Aulas </strong>
-        </Link>
-        <Link to="/ListarAula">
-          <HiOutlineTrash size={25} color="#7159c1" />
-          <strong>Excluir Aula</strong>
-        </Link>
+        <li>
+          <div>
+            <strong>
+              Matéria: ECO - Ética Profissional e Cidadania Organizacional
+            </strong>
+          </div>
+          <nav>
+            <button
+              onClick={() => {
+                return history.push("/editarAula");
+              }}
+            >
+              <HiPencil size={20} color="#81b214" />
+            </button>
+            <button>
+              <HiOutlineTrash size={20} color="#ec5858" />
+            </button>
+          </nav>
+        </li>
+        <li>
+          <div>
+            <strong>Matéria: LTT - Linguagem, Trabalho e Tecnologia</strong>
+          </div>
+          <nav>
+            <button
+              onClick={() => {
+                return history.push("/editarAula");
+              }}
+            >
+              <HiPencil size={20} color="#81b214" />
+            </button>
+            <button>
+              <HiOutlineTrash size={20} color="#ec5858" />
+            </button>
+          </nav>
+        </li>
       </ul>
     </Container>
   );
 }
 
-export default Dashboard;
+export default Home;
